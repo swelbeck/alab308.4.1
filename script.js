@@ -86,24 +86,23 @@ for (let i in string) {
 
 let copyParentArr = parentArr.concat();
 let header = parentArr.shift();
-const obj = {};
+// const obj = {};
 let newArray = [];
 
 parentArr.forEach((line, index) => {
+  const obj = {};
   header.forEach((el, i) => {
+    // console.log(i, el);
     el = el.toLowerCase();
     obj[el] = line[i];
-    newArray.push(obj);
+    // console.log(index, line, i, el, obj)
   });
-  console.log(obj);
-  //   newArray.push(obj);
-//   console.log(newArray);
-  //   if (index == parentArr.length - 1) {
-  //     console.log(newArray);
-  //   }
+  newArray.push(obj);
+
+  if (index == parentArr.length - 1) {
+    console.log(newArray);
+  }
 });
-// console.log(obj);
-// console.log(newArray)
 
 // --------------- Part 4: Sorting and Manipulating Data ---------------
 
