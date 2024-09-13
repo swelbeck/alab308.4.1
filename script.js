@@ -1,5 +1,5 @@
 // --------------- Part 1: Refactoring Old Code ---------------
-console.log(`----- Start of Part One -----`);
+console.log(`---------- Part One ----------`);
 // Variables
 let string = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
 
@@ -35,12 +35,12 @@ for (let i in string) {
     // outerArray.push(row);
     console.log(row); // Print row ****uncomment****
     // console.log(`Part One:`, outerArray)
-    console.log(`^^^End of Part One^^^`);
+    // console.log(`^^^End of Part One^^^`);
   }
 }
 
 // --------------- Part 2: Expanding Functionality ---------------
-console.log(`----- Start of Part Two -----`);
+console.log(`---------- Part Two ----------`);
 // Memory allocation for future values
 cell = ``;
 row = [];
@@ -77,7 +77,7 @@ for (let j in string) {
     console.log(parentArr); // ****uncomment****
     numColumns = colCounter[0];
     // console.log(numColumns);
-    console.log(`^^^End of Part Two^^^`);
+    // console.log(`^^^End of Part Two^^^`);
   }
 }
 // console.log(rowCounter);
@@ -89,7 +89,7 @@ for (let j in string) {
 // Convert these keys to all lowercase letters for consistency .
 // Store these objects in an array, in the order that they were originally listed.
 // Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
-console.log(`----- Start of Part Three -----`);
+console.log(`---------- Part Three ----------`);
 let copyParentArr = parentArr.concat();
 let header = parentArr.shift();
 let newArray = [];
@@ -108,10 +108,10 @@ parentArr.forEach((line, index) => {
     console.log(newArray);
   }
 });
-console.log(`^^^End of Part Three^^^`);
+// console.log(`^^^End of Part Three^^^`);
 
 // --------------- Part 4: Sorting and Manipulating Data ---------------
-console.log(`----- Start of Part Four -----`);
+console.log(`---------- Part Four ----------`);
 // console.log(newArray);
 let copyNewArray = newArray.concat();
 // console.log(copyNewArray)
@@ -146,16 +146,21 @@ for (const key in copyNewArray) {
   ageNum = Number(copyNewArray[key].age);
   ageList.push(ageNum);
 }
-// console.log(ageList);
 
-for (i in ageList) {
-  let den = Number(i) + 1;
+for (i = 0; i < ageList.length; i++) {
   sum += ageList[i];
-  avg = sum / den;
 }
+avg = sum / ageList.length;
 console.log(`Avg age:`, avg);
-console.log(`^^^End of Part Four^^^`);
+// console.log(`^^^End of Part Four^^^`);
 // --------------- Part 5: Full Circle ---------------
-console.log(`----- Start of Part Five -----`);
+console.log(`---------- Part Five ----------`);
+//As a final task, transform the final set of data back into CSV format.
+console.log(copyNewArray);
+// What to do
+  // Change keys back to a row of strings
+  //
 
-console.log(`^^^End of Part Five^^^`);
+
+// console.log(`^^^End of Part Five^^^`);
+
