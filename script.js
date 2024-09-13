@@ -156,11 +156,40 @@ console.log(`Avg age:`, avg);
 // --------------- Part 5: Full Circle ---------------
 console.log(`---------- Part Five ----------`);
 //As a final task, transform the final set of data back into CSV format.
-console.log(copyNewArray);
+// console.log(copyNewArray);
 // What to do
-  // Change keys back to a row of strings
-  //
+// Change keys back to a row of strings
+// Either replace every 4th comma with \n
+// Or make separate rows of 4 then make then into a string
+newCsv = [];
+newDataStr = ``
+testing =[]
+
+let newHeader = Object.keys(copyNewArray[0]);
+// console.log(newHeader);
+
+for (const el in copyNewArray) {
+  objs = copyNewArray[el];
+  // console.log(objs)
+  // console.log(el)
+  for (r in objs) {
+    // console.log(r, objs[r])
+    newCsv.push(objs[r]); 
+  }
+  newCsv.push(`\n`);
+  // console.log(newCsv);
+}
+let newDataArray = newHeader.concat(`\n`, newCsv);
+// console.log(newHeader.length)
+newDataArray.pop()
+// console.log(newDataArray);
+
+for(p of newDataArray){
+// console.log(p)
+  newDataStr += p + `, `
+}
+
+console.log(newDataStr)
 
 
 // console.log(`^^^End of Part Five^^^`);
-
