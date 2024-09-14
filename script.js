@@ -19,7 +19,6 @@ for (let i in string) {
 
     case "\n":
       row.push(cell); // Add cell to row
-      // outerArray.push(row)
       console.log(row); //****uncomment****
       cell = ``;
       row = [];
@@ -32,10 +31,7 @@ for (let i in string) {
   // If we reach final character in string, print
   if (i == string.length - 1) {
     row.push(cell); // Add final cell to row
-    // outerArray.push(row);
     console.log(row); // Print row ****uncomment****
-    // console.log(`Part One:`, outerArray)
-    // console.log(`^^^End of Part One^^^`);
   }
 }
 
@@ -76,13 +72,9 @@ for (let j in string) {
     parentArr.push(row);
     console.log(parentArr); // ****uncomment****
     numColumns = colCounter[0];
-    // console.log(numColumns);
-    // console.log(`^^^End of Part Two^^^`);
   }
 }
-// console.log(rowCounter);
-// console.log(colCounter);
-// console.log(parentArr[0])
+
 
 // --------------- Part 3: Transforming Data ---------------
 // For each row of data in the result array produced by your code above, create an object where the key of each value is the heading for that value’s column.
@@ -108,13 +100,11 @@ parentArr.forEach((line, index) => {
     console.log(newArray);
   }
 });
-// console.log(`^^^End of Part Three^^^`);
 
 // --------------- Part 4: Sorting and Manipulating Data ---------------
 console.log(`---------- Part Four ----------`);
-// console.log(newArray);
+
 let copyNewArray = newArray.concat();
-// console.log(copyNewArray)
 
 // Remove the last element from the sorted array .
 copyNewArray.pop();
@@ -137,7 +127,6 @@ console.log(`Push object:`, copyNewArray);
 
 /** Finally, use the values of each object within the array and the array’s length property to calculate the
 average age of the group. This calculation should be accomplished using a loop. */
-//
 let ageList = [];
 let sum = 0;
 let avg = 0;
@@ -152,44 +141,25 @@ for (i = 0; i < ageList.length; i++) {
 }
 avg = sum / ageList.length;
 console.log(`Avg age:`, avg);
-// console.log(`^^^End of Part Four^^^`);
+
 // --------------- Part 5: Full Circle ---------------
 console.log(`---------- Part Five ----------`);
-//As a final task, transform the final set of data back into CSV format.
-// console.log(copyNewArray);
-// What to do
-// Change keys back to a row of strings
-// Either replace every 4th comma with \n
-// Or make separate rows of 4 then make then into a string
-newCsv = [];
-newDataStr = ``
-testing =[]
 
+//As a final task, transform the final set of data back into CSV format.
+let newDataStr = ``;
 let newHeader = Object.keys(copyNewArray[0]);
-// console.log(newHeader);
+
+newDataStr += newHeader += `\\n`
 
 for (const el in copyNewArray) {
+  
   objs = copyNewArray[el];
-  // console.log(objs)
-  // console.log(el)
   for (r in objs) {
-    // console.log(r, objs[r])
-    newCsv.push(objs[r]); 
+    newDataStr += objs[r]
   }
-  newCsv.push(`\n`);
-  // console.log(newCsv);
+      newDataStr += `\\n`;
 }
-let newDataArray = newHeader.concat(`\n`, newCsv);
-// console.log(newHeader.length)
-newDataArray.pop()
-// console.log(newDataArray);
+newDataStr = newDataStr.slice(0,-2)
+console.log(`New dataset in CSV format:\n`, newDataStr);
 
-for(p of newDataArray){
-// console.log(p)
-  newDataStr += p + `, `
-}
-
-console.log(newDataStr)
-
-
-// console.log(`^^^End of Part Five^^^`);
+console.log(`-----End of Part Five-----`);
